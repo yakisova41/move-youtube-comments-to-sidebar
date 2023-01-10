@@ -1,17 +1,11 @@
-module.exports = (mode) => {
-    const esbuild = require("esbuild");
-    const fs = require("fs");
-    const path = require("path");
-    const writeUserscriptHeader = require("./writeUserscriptHeader.js");
-    const packageJson = JSON.parse(
-        fs.readFileSync(path.join(__dirname, "/../package.json"))
-    );
-    const cssModulesPlugin = require("esbuild-ssr-css-modules-plugin").default;
-    const eslint = require("esbuild-plugin-eslint");
+import esbuild from "esbuild";
+import path from "path";
+import writeUserscriptHeader from "./writeUserscriptHeader";
+import cssModulesPlugin from "esbuild-ssr-css-modules-plugin";
+import eslint from "esbuild-plugin-eslint";
+import packageJson from "./../package.json";
 
-    /**
-     * dev and production common plugins
-     */
+export default (mode) => {
     const plugins = [
         cssModulesPlugin({
             jsCSSInject: true,
@@ -22,7 +16,7 @@ module.exports = (mode) => {
     switch (mode) {
         case "build":
             (() => {
-                const config = {
+                const config: esbuild.BuildOptions = {
                     logLevel: "info",
                     entryPoints: [path.join(__dirname, "/../src", "index.ts")],
                     define: {
@@ -48,14 +42,14 @@ module.exports = (mode) => {
 
         case "dev":
             (() => {
-                const hotReloadCliantconfig = {
+                const hotReloadCliantconfig: esbuild.BuildOptions = {
                     entryPoints: [path.join(__dirname, "cliant", "index.ts")],
                     outfile: path.join(__dirname, "/../dist", "index.user.js"),
                     bundle: true,
                     plugins: [writeUserscriptHeader()],
                 };
 
-                const devConfig = {
+                const devConfig: esbuild.BuildOptions = {
                     logLevel: "info",
                     entryPoints: [path.join(__dirname, "/../src", "index.ts")],
                     outfile: path.join(__dirname, "tmp", "dev.user.js"),
