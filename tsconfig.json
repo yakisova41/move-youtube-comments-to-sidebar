@@ -6,7 +6,9 @@
         "moduleResolution": "node",
         "allowJs": true,
         "esModuleInterop": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "types": ["node"]
     },
-    "include": ["./src/*"]
+    "typeRoots": ["./src/types.d.ts", "node_modules/@types/"],
+    "includes": ["src/**/*", "build/*"]
 }
