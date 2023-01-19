@@ -71,6 +71,6 @@ export const domInitialize = (manager: ElementManager) => {
 
         const success = document.createElement("div");
         success.id = "mycsDominitialize-success";
-        document.querySelector("ytd-app").appendChild(success);
+        document.querySelector("body").appendChild(success);
     }
 };
