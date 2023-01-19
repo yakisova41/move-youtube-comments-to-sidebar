@@ -38,7 +38,7 @@
     },
     "userScript": {
         "@name": "Youtube comment moving to sidebar",
-        "@version": "0.0.1",
+        "@version": "0.1",
         "@author": "yakisova41",
         "@description": "Make the Youtube comments section visible from the sidebar",
         "@match": "https://www.youtube.com/*",
