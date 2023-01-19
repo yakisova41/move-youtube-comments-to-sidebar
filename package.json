@@ -37,10 +37,10 @@
         "build": "npm run build:userscirpt & npm run build:ext"
     },
     "userScript": {
-        "@name": "youtube-comment-moving-sidebar",
+        "@name": "Youtube comment moving to sidebar",
         "@version": "0.0.1",
         "@author": "yakisova41",
-        "@description": "yeah",
+        "@description": "Make the Youtube comments section visible from the sidebar",
         "@match": "https://www.youtube.com/*",
         "devServer": {
             "port": 8002,

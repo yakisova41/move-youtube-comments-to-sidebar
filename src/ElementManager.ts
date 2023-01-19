@@ -73,7 +73,7 @@ export class ElementManager {
                     //pass
                 }
             });
-        });
+        }, 100);
     }
 
     /**
