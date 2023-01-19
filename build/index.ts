@@ -3,8 +3,4 @@ import getArgv from "./modules/getArgv";
 
 const argv = getArgv();
 
-if (argv["mode"] === "build") {
-    build("build");
-} else {
-    build("dev");
-}
+build(argv["mode"]);

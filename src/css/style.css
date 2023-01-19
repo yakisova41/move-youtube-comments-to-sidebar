@@ -1,0 +1,76 @@
+.ycmsButton {
+    background: var(--yt-spec-badge-chip-background);
+    border: none;
+    color: var(--yt-spec-text-primary);
+    font-size: 14px;
+    line-height: 36px;
+    height: 36px;
+    padding: 0 16px;
+    margin-left: 8px;
+    border-radius: 18px;
+    cursor: pointer;
+    font-family: "Roboto; Arial; sans-serif;";
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ycmsButton > svg {
+    fill: var(--yt-spec-text-primary);
+}
+
+.ycmsButtonDown {
+    border-radius: 18px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.ycmsButton:hover {
+    background: var(--yt-spec-mono-tonal-hover);
+}
+
+.ycmsButtonDown:active {
+    background: var(--yt-spec-touch-response);
+    opacity: 0.1;
+}
+
+.ycmsCommentArea {
+    height: var(--ytd-watch-flexy-chat-max-height);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.ycmsCommentInner {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border: solid 1px var(--ytd-searchbox-legacy-button-border-color);
+}
+
+.ycmsComments {
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.ycmsComments::-webkit-scrollbar-thumb {
+    height: 56px;
+    border-radius: 8px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+    background-color: var(--yt-spec-icon-disabled);
+}
+
+.ycmsComments::-webkit-scrollbar {
+    background: transparent;
+    width: 16px;
+}
+
+.ycmsHidden {
+    display: none;
+}

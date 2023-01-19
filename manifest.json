@@ -1,0 +1,17 @@
+{
+    "name": "Youtube comment moving to sidebar",
+    "short_name": "ycms",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description": "Make the Youtube comments section visible from the sidebar",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": ["https://www.youtube.com/*"],
+    "permissions": ["tabs", "scripting"],
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    }
+}

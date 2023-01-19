@@ -4,8 +4,10 @@ import writeUserscriptHeader from "./writeUserscriptHeader";
 import cssModulesPlugin from "esbuild-ssr-css-modules-plugin";
 import eslint from "esbuild-plugin-eslint";
 import packageJson from "./../package.json";
+import fs from "fs";
+import glob from "glob";
 
-export default (mode) => {
+export default (mode: string) => {
     const plugins = [
         cssModulesPlugin({
             jsCSSInject: true,
@@ -80,5 +82,45 @@ export default (mode) => {
             })();
 
             break;
+
+        case "ext":
+            const entryPoints = glob.sync("./src/extension/**/*.ts");
+
+            const extconfig: esbuild.BuildOptions = {
+                logLevel: "info",
+                entryPoints,
+                define: {
+                    "process.env.NODE_ENV": "'production'",
+                },
+                outdir: path.join(__dirname, "/../dist/extension"),
+                bundle: true,
+                plugins: [...plugins],
+                minify: true,
+            };
+
+            esbuild
+                .build(extconfig)
+                .then(() => {
+                    fs.copyFileSync(
+                        path.join(__dirname, "/../manifest.json"),
+                        path.join(__dirname, "/../dist/extension/manifest.json")
+                    );
+
+                    const matches = glob.sync("./assets/**/*");
+
+                    matches.forEach((match) => {
+                        const split = match.split("/");
+                        const filename = split[split.length - 1];
+                        fs.copyFileSync(
+                            path.join(__dirname, "/../", match),
+                            path.join(
+                                __dirname,
+                                "/../dist/extension/",
+                                filename
+                            )
+                        );
+                    });
+                })
+                .catch(() => process.exit(1));
     }
 };
