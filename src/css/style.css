@@ -1,4 +1,4 @@
-.ycmsButton {
+.mycsButton {
     background: var(--yt-spec-badge-chip-background);
     border: none;
     color: var(--yt-spec-text-primary);
@@ -16,11 +16,11 @@
     align-items: center;
 }
 
-.ycmsButton > svg {
+.mycsButton > svg {
     fill: var(--yt-spec-text-primary);
 }
 
-.ycmsButtonDown {
+.mycsButtonDown {
     border-radius: 18px;
     position: absolute;
     width: 100%;
@@ -29,36 +29,36 @@
     left: 0;
 }
 
-.ycmsButton:hover {
+.mycsButton:hover {
     background: var(--yt-spec-mono-tonal-hover);
 }
 
-.ycmsButtonDown:active {
+.mycsButtonDown:active {
     background: var(--yt-spec-touch-response);
     opacity: 0.1;
 }
 
-.ycmsCommentArea {
+.mycsCommentArea {
     height: var(--ytd-watch-flexy-chat-max-height);
     width: 100%;
     margin-bottom: 20px;
 }
 
-.ycmsCommentInner {
+.mycsCommentInner {
     width: 100%;
     height: 100%;
     border-radius: 12px;
     border: solid 1px var(--ytd-searchbox-legacy-button-border-color);
 }
 
-.ycmsComments {
+.mycsComments {
     overflow-y: scroll;
     overscroll-behavior: contain;
     padding: 0 20px;
     height: 100%;
 }
 
-.ycmsComments::-webkit-scrollbar-thumb {
+.mycsComments::-webkit-scrollbar-thumb {
     height: 56px;
     border-radius: 8px;
     border: 4px solid transparent;
@@ -66,11 +66,11 @@
     background-color: var(--yt-spec-icon-disabled);
 }
 
-.ycmsComments::-webkit-scrollbar {
+.mycsComments::-webkit-scrollbar {
     background: transparent;
     width: 16px;
 }
 
-.ycmsHidden {
+.mycsHidden {
     display: none;
 }

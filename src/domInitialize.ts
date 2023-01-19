@@ -8,14 +8,14 @@ import style from "./css/style.css";
 function createCommentToggleBtn(manager: ElementManager) {
     const commentToggleBtn = document.createElement("button");
     commentToggleBtn.addEventListener("click", () => {
-        const clickEvent = new CustomEvent("ycms-commentBtnClick");
+        const clickEvent = new CustomEvent("mycs-commentBtnClick");
         document.dispatchEvent(clickEvent);
     });
-    commentToggleBtn.className = style.ycmsButton;
+    commentToggleBtn.className = style.mycsButton;
 
     const commentToggleBtnDown = document.createElement("div");
     commentToggleBtn.appendChild(commentToggleBtnDown);
-    commentToggleBtnDown.className = style.ycmsButtonDown;
+    commentToggleBtnDown.className = style.mycsButtonDown;
 
     commentToggleBtn.innerHTML =
         commentToggleBtn.innerHTML +
@@ -33,27 +33,27 @@ function createCommentToggleBtn(manager: ElementManager) {
  */
 function createCommentArea(manager: ElementManager) {
     const commentArea = document.createElement("div");
-    commentArea.className = style.ycmsCommentArea;
-    commentArea.classList.add(style.ycmsHidden);
+    commentArea.className = style.mycsCommentArea;
+    commentArea.classList.add(style.mycsHidden);
 
     const commentInner = document.createElement("div");
-    commentInner.className = style.ycmsCommentInner;
+    commentInner.className = style.mycsCommentInner;
     commentArea.appendChild(commentInner);
 
-    const ycmsComments = document.createElement("div");
-    ycmsComments.className = style.ycmsComments;
-    commentInner.appendChild(ycmsComments);
+    const mycsComments = document.createElement("div");
+    mycsComments.className = style.mycsComments;
+    commentInner.appendChild(mycsComments);
     manager.before("#secondary-inner", "#panels", commentArea);
 
     manager.observe("ytd-comments", (comments) => {
         const below = document.querySelector("#below");
 
-        document.addEventListener("ycms-commentBtnClick", () => {
-            if (commentArea.classList.contains(style.ycmsHidden)) {
-                commentArea.classList.remove(style.ycmsHidden);
-                ycmsComments.appendChild(comments);
+        document.addEventListener("mycs-commentBtnClick", () => {
+            if (commentArea.classList.contains(style.mycsHidden)) {
+                commentArea.classList.remove(style.mycsHidden);
+                mycsComments.appendChild(comments);
             } else {
-                commentArea.classList.add(style.ycmsHidden);
+                commentArea.classList.add(style.mycsHidden);
                 below.appendChild(comments);
             }
         });
@@ -65,12 +65,12 @@ function createCommentArea(manager: ElementManager) {
  * @param manager ElementManager
  */
 export const domInitialize = (manager: ElementManager) => {
-    if (document.querySelector("#ycmsDominitialize-success") === null) {
+    if (document.querySelector("#mycsDominitialize-success") === null) {
         createCommentToggleBtn(manager);
         createCommentArea(manager);
 
         const success = document.querySelector("div");
-        success.id = "ycmsDominitialize-success";
+        success.id = "mycsDominitialize-success";
         document.querySelector("ytd-app").appendChild(success);
     }
 };

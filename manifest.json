@@ -1,9 +1,9 @@
 {
-    "name": "Youtube comment moving to sidebar",
-    "short_name": "ycms",
+    "name": "Move Youtube comments to sideber",
+    "short_name": "mycs",
     "version": "0.1",
     "manifest_version": 3,
-    "description": "Make the Youtube comments section visible from the sidebar",
+    "description": "Make the YouTube comments section visible from the sidebar",
     "background": {
         "service_worker": "background.js"
     },

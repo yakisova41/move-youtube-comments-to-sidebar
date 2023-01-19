@@ -8,7 +8,7 @@ function changeListener() {
     setInterval(() => {
         const href = location.href;
         if (href !== beforeHref) {
-            const clickEvent = new CustomEvent("ycms-pageChange");
+            const clickEvent = new CustomEvent("mycs-pageChange");
             document.dispatchEvent(clickEvent);
         }
         beforeHref = href;
@@ -20,13 +20,13 @@ const main = () => {
 
     changeListener();
 
-    document.addEventListener("ycms-pageChange", () => {
+    document.addEventListener("mycs-pageChange", () => {
         const path = location.pathname;
 
         switch (path) {
             case "/watch":
-                manager.observe("." + style.ycmsCommentArea, (commentArea) => {
-                    commentArea.classList.add(style.ycmsHidden);
+                manager.observe("." + style.mycsCommentArea, (commentArea) => {
+                    commentArea.classList.add(style.mycsHidden);
                 });
 
                 domInitialize(manager);
