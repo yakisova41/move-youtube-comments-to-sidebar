@@ -1,12 +1,13 @@
 {
-    "name": "Move Youtube comments to sideber",
+    "name": "__MSG_Name__",
     "short_name": "mycs",
-    "version": "0.1",
+    "version": "0.1.1",
     "manifest_version": 3,
-    "description": "Make the YouTube comments section visible from the sidebar",
+    "description": "__MSG_Description__",
     "background": {
         "service_worker": "background.js"
     },
+    "default_locale": "en",
     "host_permissions": ["https://www.youtube.com/*"],
     "permissions": ["tabs", "scripting"],
     "icons": {

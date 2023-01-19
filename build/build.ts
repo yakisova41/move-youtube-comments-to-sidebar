@@ -4,8 +4,8 @@ import writeUserscriptHeader from "./writeUserscriptHeader";
 import cssModulesPlugin from "esbuild-ssr-css-modules-plugin";
 import eslint from "esbuild-plugin-eslint";
 import packageJson from "./../package.json";
-import fs from "fs";
 import glob from "glob";
+import fse from "fs-extra";
 
 export default (mode: string) => {
     const plugins = [
@@ -101,7 +101,7 @@ export default (mode: string) => {
             esbuild
                 .build(extconfig)
                 .then(() => {
-                    fs.copyFileSync(
+                    fse.copyFileSync(
                         path.join(__dirname, "/../manifest.json"),
                         path.join(__dirname, "/../dist/extension/manifest.json")
                     );
@@ -111,7 +111,7 @@ export default (mode: string) => {
                     matches.forEach((match) => {
                         const split = match.split("/");
                         const filename = split[split.length - 1];
-                        fs.copyFileSync(
+                        fse.copyFileSync(
                             path.join(__dirname, "/../", match),
                             path.join(
                                 __dirname,
@@ -119,6 +119,26 @@ export default (mode: string) => {
                                 filename
                             )
                         );
+
+                        if (
+                            fse.existsSync(
+                                path.join(
+                                    __dirname,
+                                    "/../src/extension/_locales"
+                                )
+                            )
+                        ) {
+                            fse.copySync(
+                                path.join(
+                                    __dirname,
+                                    "/../src/extension/_locales/"
+                                ),
+                                path.join(
+                                    __dirname,
+                                    "/../dist/extension/_locales/"
+                                )
+                            );
+                        }
                     });
                 })
                 .catch(() => process.exit(1));

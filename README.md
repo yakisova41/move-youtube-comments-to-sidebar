@@ -1,15 +1,4 @@
-# userscript-esbuild-ts
+# Move Youtube comments to sideber
 
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
-
-```build
-bun run build
-```
-
-This project was created using `bun init` in bun v0.1.13. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+YouTube のコメント欄をサイドバーで見れるようにするだけのスクリプトです。
+一応元の UI には馴染む様にはしました。

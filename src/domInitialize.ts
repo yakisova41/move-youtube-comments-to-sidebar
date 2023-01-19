@@ -69,7 +69,7 @@ export const domInitialize = (manager: ElementManager) => {
         createCommentToggleBtn(manager);
         createCommentArea(manager);
 
-        const success = document.querySelector("div");
+        const success = document.createElement("div");
         success.id = "mycsDominitialize-success";
         document.querySelector("ytd-app").appendChild(success);
     }

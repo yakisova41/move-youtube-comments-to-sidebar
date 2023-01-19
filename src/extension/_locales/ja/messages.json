@@ -1,0 +1,8 @@
+{
+    "Name": {
+        "message": "Move Youtube comments to sideber"
+    },
+    "Description": {
+        "message": "YouTubeのコメント欄をサイドバーから見れるようにします。"
+    }
+}
