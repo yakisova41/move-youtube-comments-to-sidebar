@@ -1,6 +1,5 @@
 import { ElementManager } from "./ElementManager";
 import { domInitialize } from "./domInitialize";
-import style from "./css/style.css";
 
 function changeListener() {
     let beforeHref = "";
@@ -8,8 +7,7 @@ function changeListener() {
     setInterval(() => {
         const href = location.href;
         if (href !== beforeHref) {
-            const clickEvent = new CustomEvent("mycs-pageChange");
-            document.dispatchEvent(clickEvent);
+            document.dispatchEvent(new CustomEvent("mycs-pageChange"));
         }
         beforeHref = href;
     });

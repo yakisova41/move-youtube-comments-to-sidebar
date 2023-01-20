@@ -7,9 +7,11 @@
         "allowJs": true,
         "esModuleInterop": true,
         "resolveJsonModule": true,
-        "types": ["node", "dom", "@types/chrome"],
-        "jsx": "react"
+        "types": ["node", "@types/chrome"],
+        "jsx": "react",
+        "skipLibCheck": true
     },
+    "exclude": ["node_modules"],
     "typeRoots": ["./src/types.d.ts", "node_modules/@types/"],
     "includes": ["src/**/*", "build/*"]
 }
