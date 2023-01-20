@@ -33,7 +33,6 @@ function createCommentToggleBtn(manager: ElementManager) {
  */
 function createCommentArea(manager: ElementManager) {
     const commentArea = document.createElement("div");
-    commentArea.className = style.mycsCommentArea;
     commentArea.classList.add(style.mycsHidden);
 
     const commentInner = document.createElement("div");
@@ -43,9 +42,28 @@ function createCommentArea(manager: ElementManager) {
     const mycsComments = document.createElement("div");
     mycsComments.className = style.mycsComments;
     commentInner.appendChild(mycsComments);
-    manager.before("#secondary-inner", "#panels", commentArea);
 
-    manager.observe("ytd-comments", (comments) => {
+    const addCommentArea = () => {
+        manager.remove(commentArea);
+
+        if (window.innerWidth > 1016) {
+            manager.before("#secondary-inner", "#panels", commentArea);
+            commentArea.classList.add(style.mycsCommentAreaSecondaryInner);
+            commentArea.classList.remove(style.mycsCommentAreaBelow);
+        } else {
+            manager.before("#below", "#panels", commentArea);
+            commentArea.classList.add(style.mycsCommentAreaBelow);
+            commentArea.classList.remove(style.mycsCommentAreaSecondaryInner);
+        }
+    };
+
+    addCommentArea();
+
+    window.addEventListener("resize", () => {
+        addCommentArea();
+    });
+
+    manager.observe("#primary-inner > #below > ytd-comments", (comments) => {
         const below = document.querySelector("#below");
 
         document.addEventListener("mycs-commentBtnClick", () => {

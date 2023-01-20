@@ -1,15 +1,16 @@
 {
     "name": "__MSG_Name__",
     "short_name": "mycs",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "manifest_version": 3,
     "description": "__MSG_Description__",
-    "background": {
-        "service_worker": "background.js"
-    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.youtube.com/*"],
+            "js": ["contentScript.js"]
+        }
+    ],
     "default_locale": "en",
-    "host_permissions": ["https://www.youtube.com/*"],
-    "permissions": ["tabs", "scripting"],
     "icons": {
         "16": "icon16.png",
         "48": "icon48.png",

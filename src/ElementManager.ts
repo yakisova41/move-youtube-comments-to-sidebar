@@ -138,6 +138,6 @@ export class ElementManager {
                 callBack(element);
                 element = null;
             }
-        });
+        }, 100);
     }
 }

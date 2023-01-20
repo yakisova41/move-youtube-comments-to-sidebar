@@ -38,10 +38,16 @@
     opacity: 0.1;
 }
 
-.mycsCommentArea {
+.mycsCommentAreaSecondaryInner {
     height: var(--ytd-watch-flexy-chat-max-height);
     width: 100%;
     margin-bottom: 20px;
+}
+
+.mycsCommentAreaBelow {
+    height: calc(100vh - 56.25vw - var(--ytd-margin-6x) - 56px);
+    width: 100%;
+    margin: 20px 0;
 }
 
 .mycsCommentInner {
