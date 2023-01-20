@@ -129,7 +129,7 @@ export class ElementManager {
     public observe(
         selector: string,
         callBack: (element: Element) => void
-    ): void {
+    ): { stop: () => void } {
         const interval = setInterval(() => {
             let element = document.querySelector(selector);
 
@@ -139,5 +139,11 @@ export class ElementManager {
                 element = null;
             }
         }, 100);
+
+        return {
+            stop: () => {
+                clearInterval(interval);
+            },
+        };
     }
 }

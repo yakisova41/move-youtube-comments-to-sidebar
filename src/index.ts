@@ -25,11 +25,10 @@ const main = () => {
 
         switch (path) {
             case "/watch":
-                manager.observe("." + style.mycsCommentArea, (commentArea) => {
-                    commentArea.classList.add(style.mycsHidden);
-                });
-
                 domInitialize(manager);
+                document.dispatchEvent(
+                    new CustomEvent("mycs-setHide", { detail: true })
+                );
                 break;
         }
     });

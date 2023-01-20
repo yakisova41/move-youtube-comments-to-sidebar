@@ -55,6 +55,9 @@ export default (mode: string) => {
                     logLevel: "info",
                     entryPoints: [path.join(__dirname, "/../src", "index.ts")],
                     outfile: path.join(__dirname, "tmp", "dev.user.js"),
+                    define: {
+                        "process.env.NODE_ENV": "'development'",
+                    },
                     bundle: true,
                     watch: true,
                     plugins: plugins,

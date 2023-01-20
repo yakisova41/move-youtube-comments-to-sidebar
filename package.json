@@ -1,5 +1,5 @@
 {
-    "name": "move-youtube-comments-to-sideber",
+    "name": "move-youtube-comments-to-sidebar",
     "type": "commonjs",
     "devDependencies": {
         "@swc/core": "^1.3.25",
@@ -28,7 +28,11 @@
         "ws": "^8.11.0"
     },
     "dependencies": {
-        "@types/chrome": "^0.0.209"
+        "@types/chrome": "^0.0.209",
+        "@types/react": "^18.0.27",
+        "@types/react-dom": "^18.0.10",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "scripts": {
         "hotreload-server": "npx ts-node build/sockserver.ts",
@@ -39,9 +43,9 @@
         "build": "npm run build:userscirpt & npm run build:ext"
     },
     "userScript": {
-        "@name": "Move Youtube comments to sideber",
+        "@name": "Move Youtube comments to sidebar",
         "@name:ja": "YouTubeのコメント欄をサイドバーで見れるようにする",
-        "@version": "0.1.3",
+        "@version": "0.2.1",
         "@license": "MIT",
         "@author": "yakisova41",
         "@description": "Make the Youtube comments section visible from the sidebar",
