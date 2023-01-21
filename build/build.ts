@@ -109,6 +109,17 @@ export default (mode: string) => {
                         path.join(__dirname, "/../dist/extension/manifest.json")
                     );
 
+                    if (
+                        fse.existsSync(
+                            path.join(__dirname, "/../src/extension/_locales")
+                        )
+                    ) {
+                        fse.copySync(
+                            path.join(__dirname, "/../src/extension/_locales/"),
+                            path.join(__dirname, "/../dist/extension/_locales/")
+                        );
+                    }
+
                     const matches = glob.sync("./assets/**/*");
 
                     matches.forEach((match) => {
@@ -122,26 +133,6 @@ export default (mode: string) => {
                                 filename
                             )
                         );
-
-                        if (
-                            fse.existsSync(
-                                path.join(
-                                    __dirname,
-                                    "/../src/extension/_locales"
-                                )
-                            )
-                        ) {
-                            fse.copySync(
-                                path.join(
-                                    __dirname,
-                                    "/../src/extension/_locales/"
-                                ),
-                                path.join(
-                                    __dirname,
-                                    "/../dist/extension/_locales/"
-                                )
-                            );
-                        }
                     });
                 })
                 .catch(() => process.exit(1));

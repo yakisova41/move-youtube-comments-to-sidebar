@@ -35,11 +35,11 @@
     },
     "scripts": {
         "hotreload-server": "npx ts-node build/sockserver.ts",
-        "build:userscirpt": "npx ts-node build/ mode=build",
+        "build:userscript": "npx ts-node build/ mode=build",
         "server": "npx ts-node build/server.ts",
-        "dev": "npm run build:userscirpt mode=dev & npm run hotreload-server & npm run server",
+        "dev": "npm run build:userscript mode=dev & npm run hotreload-server & npm run server",
         "build:ext": "npx ts-node build/ mode=ext",
-        "build": "npm run build:userscirpt & npm run build:ext"
+        "build": "npm run build:userscript & npm run build:ext"
     },
     "userScript": {
         "@name": "Move Youtube comments to sidebar",
