@@ -43,5 +43,5 @@ exports["default"] = (function (plugins) {
             var filename = split[split.length - 1];
             fs_extra_1["default"].copyFileSync(path_1["default"].join(workingDir, match), path_1["default"].join(workingDir, "/dist/extension/", filename));
         });
-    })["catch"]();
+    })["catch"](function () { return process.exit(1); });
 });

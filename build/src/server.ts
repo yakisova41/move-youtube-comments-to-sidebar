@@ -30,9 +30,7 @@ app.get("/index.user.js", (req, res) => {
 app.get("/script", (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     if ((argv["mode"] = "dev")) {
-        res.sendFile(
-            path.join(workingDir, "/scripts/build/tmp", "dev.user.js")
-        );
+        res.sendFile(path.join(workingDir, "/build/tmp", "dev.user.js"));
     }
 });
 

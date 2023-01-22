@@ -27,7 +27,7 @@ app.get("/index.user.js", function (req, res) {
 app.get("/script", function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     if ((argv["mode"] = "dev")) {
-        res.sendFile(path_1["default"].join(workingDir, "/scripts/build/tmp", "dev.user.js"));
+        res.sendFile(path_1["default"].join(workingDir, "/build/tmp", "dev.user.js"));
     }
 });
 try {

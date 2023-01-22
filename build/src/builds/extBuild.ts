@@ -48,5 +48,5 @@ export default (plugins: Plugin[]) => {
                 );
             });
         })
-        .catch();
+        .catch(() => process.exit(1));
 };
