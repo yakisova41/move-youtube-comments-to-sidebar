@@ -34,11 +34,12 @@
         "react-dom": "^18.2.0"
     },
     "scripts": {
-        "hotreload-server": "npx ts-node build/sockserver.ts",
-        "build:userscript": "npx ts-node build/ mode=build",
-        "server": "npx ts-node build/server.ts",
+        "build:builder": "npm run build:builder --prefix build",
+        "hotreload-server": "node build/dist/sockserver.js --platform=node",
+        "build:userscript": "node build/dist/ mode=build --platform=node",
+        "server": "node build/dist/server.js --platform=node",
         "dev": "npm run build:userscript mode=dev & npm run hotreload-server & npm run server",
-        "build:ext": "npx ts-node build/ mode=ext",
+        "build:ext": "node build/dist/ mode=ext --platform=node",
         "build": "npm run build:userscript & npm run build:ext"
     },
     "userScript": {

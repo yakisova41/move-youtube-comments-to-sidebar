@@ -1,7 +1,14 @@
 import express from "express";
 import getArgv from "./modules/getArgv";
 import path from "path";
-import packageJson from "./../package.json";
+import fs from "fs-extra";
+
+const workingDir = process.cwd();
+
+const packageJson = JSON.parse(
+    fs.readFileSync(path.join(workingDir, "package.json"), "utf8")
+);
+
 const argv = getArgv();
 
 let host: string;
@@ -17,13 +24,15 @@ const app = express();
 
 app.get("/index.user.js", (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
-    res.sendFile(path.join(__dirname, "/../dist/", "index.user.js"));
+    res.sendFile(path.join(workingDir, "/dist/", "index.user.js"));
 });
 
 app.get("/script", (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     if ((argv["mode"] = "dev")) {
-        res.sendFile(path.join(__dirname, "tmp", "dev.user.js"));
+        res.sendFile(
+            path.join(workingDir, "/scripts/build/tmp", "dev.user.js")
+        );
     }
 });
 

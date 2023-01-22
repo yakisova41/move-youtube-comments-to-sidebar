@@ -1,7 +1,13 @@
 import chokidar from "chokidar";
 import path from "path";
 import webSocket from "ws";
-import packageJson from "./../package.json";
+import fs from "fs-extra";
+
+const workingDir = process.cwd();
+
+const packageJson = JSON.parse(
+    fs.readFileSync(path.join(workingDir, "package.json"), "utf8")
+);
 
 let host: string;
 let port: number;

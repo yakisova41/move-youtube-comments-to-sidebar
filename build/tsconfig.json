@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "outDir": "./dist",
+        "moduleResolution": "node",
+        "allowJs": true
+    },
+    "includes": ["src/**/*"],
+    "exclude": ["cliant/**/*", "node_modules", "tmp/**/*", "dist/**/*"]
+}

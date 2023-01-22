@@ -1,0 +1,9 @@
+{
+    "name": "build",
+    "type": "commonjs",
+    "devDependencies": {},
+    "dependencies": {},
+    "scripts": {
+        "build:builder": "npx tsc"
+    }
+}
