@@ -4,7 +4,8 @@
         "esModuleInterop": true,
         "outDir": "./dist",
         "moduleResolution": "node",
-        "allowJs": true
+        "allowJs": true,
+        "types": ["node"]
     },
     "includes": ["src/**/*"],
     "exclude": ["cliant/**/*", "node_modules", "tmp/**/*", "dist/**/*"]

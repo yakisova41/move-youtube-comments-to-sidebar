@@ -35,7 +35,7 @@ if (hot) {
         ws.send("connect");
     });
 
-    const watcher = chokidar.watch(path.join(__dirname, "tmp/"));
+    const watcher = chokidar.watch(path.join(__dirname, "/../tmp/"));
     watcher.on("ready", () => {
         watcher.on("change", (e) => {
             wserver.clients.forEach((client) => {

@@ -30,7 +30,7 @@ if (hot) {
     wserver_1.on("connection", function (ws) {
         ws.send("connect");
     });
-    var watcher_1 = chokidar_1["default"].watch(path_1["default"].join(__dirname, "tmp/"));
+    var watcher_1 = chokidar_1["default"].watch(path_1["default"].join(__dirname, "/../tmp/"));
     watcher_1.on("ready", function () {
         watcher_1.on("change", function (e) {
             wserver_1.clients.forEach(function (client) {
