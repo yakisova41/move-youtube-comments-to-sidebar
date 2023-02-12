@@ -44,27 +44,23 @@ export default async (eventElement: Element) => {
 
     let innerWidthTmp = 0;
 
-    window.addEventListener(
-        "resize",
-        () => {
-            setTimeout(async () => {
-                if (innerWidthTmp > 1015 && window.innerWidth < 1015) {
-                    //SMALL
-                    await smallMode(root);
-                    const related = commentsOuter.querySelector("#related");
+    window.addEventListener("resize", () => {
+        setTimeout(async () => {
+            if (innerWidthTmp > 1015 && window.innerWidth < 1015) {
+                //SMALL
+                await smallMode(root);
+                const related = commentsOuter.querySelector("#related");
 
-                    findElement("#primary-inner > #below").then((e) =>
-                        e.appendChild(related)
-                    );
-                } else if (innerWidthTmp < 1015 && window.innerWidth > 1015) {
-                    //BIG
-                    bigMode(root);
-                }
-                innerWidthTmp = window.innerWidth;
-            });
-        },
-        1
-    );
+                findElement("#primary-inner > #below").then((e) =>
+                    e.appendChild(related)
+                );
+            } else if (innerWidthTmp < 1015 && window.innerWidth > 1015) {
+                //BIG
+                bigMode(root);
+            }
+            innerWidthTmp = window.innerWidth;
+        }, 1);
+    });
 
     eventElement.addEventListener(
         "toggleComments",
