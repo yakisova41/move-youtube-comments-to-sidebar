@@ -8,5 +8,11 @@
         "types": ["node"]
     },
     "includes": ["src/**/*"],
-    "exclude": ["cliant/**/*", "node_modules", "tmp/**/*", "dist/**/*"]
+    "exclude": [
+        "cliant/**/*",
+        "node_modules",
+        "tmp/**/*",
+        "dist/**/*",
+        "buildCheck.js"
+    ]
 }

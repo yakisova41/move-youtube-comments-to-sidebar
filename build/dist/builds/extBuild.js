@@ -14,9 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 var esbuild_1 = __importDefault(require("esbuild"));
 var path_1 = __importDefault(require("path"));
-var fs_extra_1 = __importDefault(require("fs-extra"));
 var glob_1 = __importDefault(require("glob"));
-exports["default"] = (function (plugins) {
+var extensionBuild_1 = __importDefault(require("../plugins/extensionBuild"));
+exports["default"] = (function (plugins, additionConfig) {
     var workingDir = process.cwd();
     var entryPoints = glob_1["default"].sync("./src/extension/**/*.ts");
     var config = {
@@ -27,21 +27,11 @@ exports["default"] = (function (plugins) {
         },
         outdir: path_1["default"].join(workingDir, "/dist/extension"),
         bundle: true,
-        plugins: __spreadArray([], plugins, true),
+        plugins: __spreadArray(__spreadArray([], plugins, true), [(0, extensionBuild_1["default"])()], false),
         minify: true
     };
-    esbuild_1["default"]
-        .build(config)
-        .then(function () {
-        fs_extra_1["default"].copyFileSync(path_1["default"].join(workingDir, "/manifest.json"), path_1["default"].join(workingDir, "/dist/extension/manifest.json"));
-        if (fs_extra_1["default"].existsSync(path_1["default"].join(workingDir, "/src/extension/_locales"))) {
-            fs_extra_1["default"].copySync(path_1["default"].join(workingDir, "/src/extension/_locales/"), path_1["default"].join(workingDir, "/dist/extension/_locales/"));
-        }
-        var matches = glob_1["default"].sync("./assets/**/*");
-        matches.forEach(function (match) {
-            var split = match.split("/");
-            var filename = split[split.length - 1];
-            fs_extra_1["default"].copyFileSync(path_1["default"].join(workingDir, match), path_1["default"].join(workingDir, "/dist/extension/", filename));
-        });
-    })["catch"](function () { return process.exit(1); });
+    Object.keys(additionConfig).forEach(function (key) {
+        config[key] = additionConfig[key];
+    });
+    esbuild_1["default"].build(config)["catch"](function () { return process.exit(1); });
 });

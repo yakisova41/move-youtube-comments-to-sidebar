@@ -16,7 +16,7 @@ var esbuild_1 = __importDefault(require("esbuild"));
 var path_1 = __importDefault(require("path"));
 var writeUserscriptHeader_1 = __importDefault(require("../plugins/writeUserscriptHeader"));
 var fs_extra_1 = __importDefault(require("fs-extra"));
-exports["default"] = (function (plugins) {
+exports["default"] = (function (plugins, additionConfig) {
     var _a;
     var workingDir = process.cwd();
     var packageJson = JSON.parse(fs_extra_1["default"].readFileSync(path_1["default"].join(workingDir, "package.json"), "utf8"));
@@ -35,5 +35,8 @@ exports["default"] = (function (plugins) {
             config[key] = packageJson.userScript.esbuild[key];
         });
     }
+    Object.keys(additionConfig).forEach(function (key) {
+        config[key] = additionConfig[key];
+    });
     esbuild_1["default"].build(config)["catch"](function () { return process.exit(1); });
 });
