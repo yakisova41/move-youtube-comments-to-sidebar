@@ -1,22 +1,27 @@
 import { ElementManager } from "./ElementManager";
 import { domInitialize } from "./domInitialize";
 
-function changeListener() {
+function pageChangeListener() {
     let beforeHref = "";
 
-    setInterval(() => {
+    const observer = new MutationObserver(() => {
         const href = location.href;
         if (href !== beforeHref) {
             document.dispatchEvent(new CustomEvent("mycs-pageChange"));
         }
         beforeHref = href;
     });
+
+    observer.observe(document.querySelector("body"), {
+        childList: true,
+        subtree: true,
+    });
 }
 
 const main = () => {
     const manager = new ElementManager();
 
-    changeListener();
+    pageChangeListener();
 
     document.addEventListener("mycs-pageChange", () => {
         const path = location.pathname;
