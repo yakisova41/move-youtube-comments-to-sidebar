@@ -45,7 +45,7 @@
     "userScript": {
         "@name": "Move Youtube comments to sidebar",
         "@name:ja": "YouTubeのコメント欄をサイドバーで見れるようにする",
-        "@version": "0.1.0",
+        "@version": "1.0.0",
         "@license": "MIT",
         "@author": "yakisova41",
         "@description": "Make the Youtube comments section visible from the sidebar",
