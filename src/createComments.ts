@@ -80,6 +80,4 @@ export default async (eventElement: Element) => {
             }
         }
     );
-
-    return comments;
 };
