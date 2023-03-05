@@ -3,7 +3,7 @@ import packagejson from "./package.json";
 export const userScriptHeader = {
     "@name": packagejson.name,
     "@version": packagejson.version,
-    "@licence": packagejson.license,
+    "@license": packagejson.license,
     "@name:ja": "YouTubeのコメント欄をサイドバーで見れるようにする",
     "@author": "yakisova41",
     "@description":
