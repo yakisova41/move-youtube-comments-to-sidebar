@@ -39,10 +39,16 @@ export const manifest = {
             js: ["contentScript.js"],
         },
     ],
+    web_accessible_resources: [
+        {
+            resources: ["embed.js"],
+            matches: ["https://www.youtube.com/*"],
+        },
+    ],
     default_locale: "en",
     icons: {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png",
+        "16": "assets/icon16.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png",
     },
 };
