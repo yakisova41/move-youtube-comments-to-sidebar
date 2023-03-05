@@ -1,9 +1,0 @@
-{
-  "name": "build",
-  "type": "commonjs",
-  "devDependencies": {},
-  "dependencies": { "chokidar": "^3.5.3", "fs-extra": "^11.1.0", "ws": "^8.12.0" },
-  "scripts": {
-    "build:builder": "npx tsc"
-  }
-}
