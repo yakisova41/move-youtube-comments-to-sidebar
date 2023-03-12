@@ -37,16 +37,18 @@ export function main() {
         "pageChange",
         async (e: CustomEvent<pageChangeEvent>) => {
             const { newHref } = e.detail;
+            const pageName = newHref.split("/")[3].split("?")[0];
 
-            if (newHref.split("/")[3].split("?")[0] === "watch") {
+            if (pageName === "watch") {
+                console.log(isButtonCreated);
                 if (!isButtonCreated) {
-                    await addButton(mycs);
                     isButtonCreated = true;
+                    await addButton(mycs);
                 }
 
                 if (!isCommentsCreated) {
-                    await createComments(mycs);
                     isCommentsCreated = true;
+                    await createComments(mycs);
                 }
 
                 commentsHide = true;
